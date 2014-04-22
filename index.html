@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="extjs/resources/css/ext-all.css" rel="stylesheet" type="text/css" />
+	<script src="extjs/ext-all.js"></script>
+</head>
+<body>
+	
+	<script>
+		Ext.onReady(function () {
+
+			Ext.create("Ext.form.Label", {
+				text: "Press this button to populate the textbox",
+				renderTo: Ext.getBody()
+			});
+
+			Ext.create("Ext.Button",{
+				text : "Hello World",
+				handler: function () {
+					Ext.getCmp("nametext").setValue("Hello World");
+				},
+				renderTo : Ext.getBody()
+			});
+
+			Ext.create("Ext.Panel", {
+				title: "Hello World Panel",
+				padding: 20,
+				items: [
+					Ext.create("Ext.form.field.Text", {
+						fieldLabel: "Name",
+						id: "nametext",
+						margin: 10
+					}),
+					Ext.create("Ext.Button", {
+						text: "Click",
+						handler: function () {
+							Ext.Msg.alert("Bericht", Ext.getCmp("nametext").getValue());
+						},
+						margin: 10
+					})
+				],
+				renderTo: Ext.getBody()
+			});
+
+		});
+	</script>
+</body>
+</html>
